@@ -1,6 +1,7 @@
 def extract_features(message):
     return [1, 2, 3]
 
+# Подсчёт количества каждых реакций
 def extract_reactions(message):
     result = {}
     if message.reactions is not None: 
