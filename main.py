@@ -11,7 +11,7 @@ import time
 logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode="w", encoding="utf-8")
 
 # Канал для считывания информации
-channel_username = '@rian_ru'
+channel_username = '@ilya_commander'
 
 # Ключевые слова для блока
 PARTICIPATE_KEYWORDS = ["участвовать", "participate", "розыгрыш", "giveaway"]
