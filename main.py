@@ -11,7 +11,8 @@ import time
 logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode="w", encoding="utf-8")
 
 # Канал для считывания информации
-channel_username = '@ilya_commander'
+channel_username = '@novosti_voinaa'
+# Novosty
 
 # Ключевые слова для блока
 PARTICIPATE_KEYWORDS = ["участвовать", "participate", "розыгрыш", "giveaway"]
@@ -55,7 +56,12 @@ async def main():
                 except pyrogram.errors.exceptions.bad_request_400.MsgIdInvalid as e:
                     logging.warning("Пост без возможности подсчёта комментариев!")
 
-                post = {"text": text, "tags": extract_features(text), "views": message.views, "date": str(message.date), "reactions": extract_reactions(message), "comments": comments}
+                post = {
+                    "text": text, "views": message.views, "date": str(message.date), 
+                    "tags": extract_features(text),  
+                    "reactions": extract_reactions(message), "comments": comments,
+                    "media": str(message.media)[17:]
+                }
                 logging.info(msg=json.dumps(post, ensure_ascii=False))
             except pyrogram.errors.exceptions.flood_420.FloodWait as e:
                 # Сон на требуемой количество секунд!
